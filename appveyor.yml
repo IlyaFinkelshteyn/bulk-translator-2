@@ -11,6 +11,7 @@ cache:
 
 install:
   - ps: Install-Product node 6 x64
+  - ps: get-process -Name node -ErrorAction Ignore
   - npm install
 
 build_script:
@@ -18,8 +19,9 @@ build_script:
  # - npm run build:win32
  # - npm run build:linux		
 - npm run build:darwin
+- tasklist
 #- ps: get-process -Name node -ErrorAction Ignore
-- ps: stop-process -Name node -ErrorAction Ignore
+#- ps: stop-process -Name node -ErrorAction Ignore
  # - powershell.exe get-process -Name node -ErrorAction Ignore
  # - powershell.exe stop-process -Name node -ErrorAction Ignore
  # - powershell.exe get-process -Name node -ErrorAction Ignore
