@@ -14,12 +14,13 @@ install:
   - npm install
 
 build_script:
-  - npm run pack
+- ps: get-process -Name node -ErrorAction Ignore
+- npm run pack
  # - npm run build:win32
  # - npm run build:linux		
-  -  npm run build:darwin
-  - tasklist | findstr /psi "node"
-  - taskkill /F /IM node.exe /T
+- npm run build:darwin
+- ps: get-process -Name node -ErrorAction Ignore
+- ps: stop-process -Name node -ErrorAction Ignore
  # - powershell.exe get-process -Name node -ErrorAction Ignore
  # - powershell.exe stop-process -Name node -ErrorAction Ignore
  # - powershell.exe get-process -Name node -ErrorAction Ignore
