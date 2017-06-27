@@ -14,12 +14,11 @@ install:
   - npm install
 
 build_script:
-- ps: get-process -Name node -ErrorAction Ignore
 - npm run pack
  # - npm run build:win32
  # - npm run build:linux		
 - npm run build:darwin
-- ps: get-process -Name node -ErrorAction Ignore
+#- ps: get-process -Name node -ErrorAction Ignore
 - ps: stop-process -Name node -ErrorAction Ignore
  # - powershell.exe get-process -Name node -ErrorAction Ignore
  # - powershell.exe stop-process -Name node -ErrorAction Ignore
