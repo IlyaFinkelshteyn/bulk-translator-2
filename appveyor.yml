@@ -25,11 +25,5 @@ artifacts:
 - path: build\bulk-translator-2-win32-x64
   name: bulk-translator-2-win32-x64-$(APPVEYOR_REPO_TAG_NAME)-build-$(APPVEYOR_BUILD_NUMBER)
 
-
-deploy:
-- provider: GitHub
-  auth_token:
-    secure: XzF+tv+eNt5kVFVCR+vRzieXMuQuiIm59sNqopHv9w3VXu9Watx7fn/s+r93nVF0
-  artifact: /.*\.zip/
-  on:
-    appveyor_repo_tag: true
+on_finish:
+  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
