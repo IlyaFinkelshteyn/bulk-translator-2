@@ -20,7 +20,10 @@ build_script:
   - npm run build:win32
   - npm run build:linux		
   - npm run build:darwin
-  #- ps: Stop-Process -Name node
+  - ps: get-process | findstr /psi "node"
+  - ps: sleep 5
+  - ps: Stop-Process -Name node
+  - ps: get-process | findstr /psi "node"
 
 test: off
 
