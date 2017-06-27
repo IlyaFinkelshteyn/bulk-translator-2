@@ -17,11 +17,12 @@ build_script:
   - npm run pack
  # - npm run build:win32
  # - npm run build:linux		
-  - npm run build:darwin
-  - dir
+  -  npm run build:darwin
+  - tasklist | findstr /psi "node"
+  - taskkill /F /IM node.exe /T
  # - powershell.exe get-process -Name node -ErrorAction Ignore
-  - powershell.exe stop-process -Name node -ErrorAction Ignore
-  - powershell.exe get-process -Name node -ErrorAction Ignore
+ # - powershell.exe stop-process -Name node -ErrorAction Ignore
+ # - powershell.exe get-process -Name node -ErrorAction Ignore
 
 artifacts:
 #  - path: build\bulk-translator-2-win32-x64
