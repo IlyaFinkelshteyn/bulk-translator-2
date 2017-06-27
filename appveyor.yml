@@ -1,8 +1,6 @@
 platform:
   - x64
 
-skip_non_tags: true
-
 init:
   - git config --global core.autocrlf input
 
@@ -31,5 +29,5 @@ artifacts:
 - path: build\bulk-translator-2-linux-x64		
 - path: build\bulk-translator-2-darwin-x64		
 
-on_finish:
-  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+#on_finish:
+#  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
