@@ -16,10 +16,10 @@ install:
   - npm install
 
 build_script:
-  - npm run pack
-  - npm run build:win32
-  - npm run build:linux		
-  - npm run build:darwin
+  - cmd /c npm run pack
+  - cmd /c npm run build:win32
+  - cmd /c npm run build:linux		
+  - cmd /c npm run build:darwin
   - ps: get-process | findstr /psi "node"
   - ps: sleep 5
   - ps: Stop-Process -Name node
