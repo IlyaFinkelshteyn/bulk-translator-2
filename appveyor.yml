@@ -18,6 +18,7 @@ build_script:
   - npm run build:win32
   - npm run build:linux		
   - npm run build:darwin
+  - process.exit(0)
   - powershell get-process | findstr /psi "node"  
   - powershell stop-process -Name node -erroraction ignore
   - powershell get-process | findstr /psi "node"
