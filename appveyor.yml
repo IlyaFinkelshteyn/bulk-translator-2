@@ -15,17 +15,17 @@ install:
 
 build_script:
   - npm run pack
-  - npm run build:win32
-  - npm run build:linux		
+ # - npm run build:win32
+ # - npm run build:linux		
   - npm run build:darwin
-  - process.exit(0)
+  - dir
   - powershell get-process | findstr /psi "node"  
   - powershell stop-process -Name node -erroraction ignore
   - powershell get-process | findstr /psi "node"
 
 artifacts:
-  - path: build\bulk-translator-2-win32-x64
-  - path: build\bulk-translator-2-linux-x64		
+#  - path: build\bulk-translator-2-win32-x64
+#  - path: build\bulk-translator-2-linux-x64		
   - path: build\bulk-translator-2-darwin-x64		
 
 #on_finish:
