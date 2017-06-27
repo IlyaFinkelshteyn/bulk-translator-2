@@ -10,8 +10,7 @@ cache:
   - '%USERPROFILE%\.electron'
 
 install:
-  - ps: Install-Product node 6 x64
-  - ps: get-process -Name node -ErrorAction Ignore
+  - ps: Install-Product node 6 x64  
   - npm install
 
 build_script:
