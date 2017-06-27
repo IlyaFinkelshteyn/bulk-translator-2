@@ -14,20 +14,18 @@ install:
   - npm install
 
 build_script:
-  - cmd /c npm run pack
-  - cmd /c npm run build:win32
-  - cmd /c npm run build:linux		
-  - cmd /c npm run build:darwin
-
-test_script:
-  - ps: get-process | findstr /psi "node"  
-  - ps: Stop-Process -Name node
-  - ps: get-process | findstr /psi "node"
+  - npm run pack
+  - npm run build:win32
+  - npm run build:linux		
+  - npm run build:darwin
+  - powershell get-process | findstr /psi "node"  
+  - powershell stop-process -Name node -erroraction ignore
+  - powershell get-process | findstr /psi "node"
 
 artifacts:
-- path: build\bulk-translator-2-win32-x64
-- path: build\bulk-translator-2-linux-x64		
-- path: build\bulk-translator-2-darwin-x64		
+  - path: build\bulk-translator-2-win32-x64
+  - path: build\bulk-translator-2-linux-x64		
+  - path: build\bulk-translator-2-darwin-x64		
 
 #on_finish:
 #  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
